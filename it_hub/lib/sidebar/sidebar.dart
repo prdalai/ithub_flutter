@@ -209,10 +209,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                             MenuItem(
                               icon: Icons.cloud,
                               title: "Machine Learning",
-                              onTap: () {
-                                onIconPressed();
-                                BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyMlClickedEvent);
-                              },
+                              onTap: signOut,
                             ),
                           ],
                         ),
