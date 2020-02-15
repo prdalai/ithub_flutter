@@ -1,0 +1,88 @@
+[
+  {
+    "1": "System structure of the Linux is ?",
+    "2": "In Linux a user can load or upload ?",
+    "3": "Linux is an ?",
+    "4": "File name that handle interrupts in Linux is ?",
+    "5": "In Kernel Signals are used to notify a certain ?",
+    "6": "How applications communicates with kernel ?",
+    "7": "What is meaning of ILP32 ?",
+    "8": "What is property of UNIX ?",
+    "9": "What is the meaning of SVR4 ?",
+    "10": "Which among following is considered as super daemon ?"
+  },
+  {
+    "1": {
+      "a": "Microsoft Windows",
+      "b": "UNIX",
+      "c": "Window Vista",
+      "d": "Monolithic Kernel"
+    },
+    "2": {
+      "a": "I/O Modules",
+      "b": "I/O Devices",
+      "c": "Kernel Modules",
+      "d": "File Base I/O"
+    },
+    "3": {
+      "a": "Closed Source",
+      "b": "freeware",
+      "c": "Open source software",
+      "d": "both a and b"
+    },
+    "4": {
+      "a": "Access file",
+      "b": "Control file",
+      "c": "Interrupts file",
+      "d": "Proc interrupts file"
+    },
+    "5": {
+      "a": "Decisions",
+      "b": "Faults",
+      "c": "Strategies",
+      "d": "Procedures"
+    },
+    "6": {
+      "a": "Not disclosed by linux team",
+      "b": "SSL",
+      "c": "System Calls",
+      "d": "Shell"
+    },
+    "7": {
+      "a": "32 bit Integrated, Long & Pointer",
+      "b": "32 bit Integer, Long & Pointer",
+      "c": "32 bit Integer, Long & Point",
+      "d": "32 bit Integer, Lost & Pointer"
+    },
+    "8": {
+      "a": "Multi User",
+      "b": "Multi Processes",
+      "c": "Multi Tasking",
+      "d": "All of above"
+    },
+    "9": {
+      "a": "System Five Release 4",
+      "b": "System Version Release 4",
+      "c": "System Five Relocated 4",
+      "d": "Storage Files Five Release 4"
+    },
+    "10": {
+      "a": "sysinit",
+      "b": "grep",
+      "c": "init",
+      "d": "locate"
+    }
+  },
+  {
+    "1": "Monolithic Kernel",
+    "2": "Kernel Modules",
+    "3": "both a and b",
+    "4": "Proc interrupts file",
+    "5": "Faults",
+    "6": "System Calls",
+    "7": "32 bit Integer, Long & Pointer",
+    "8": "All of above",
+    "9": "System Five Release 4",
+    "10": "init"
+  }
+]
