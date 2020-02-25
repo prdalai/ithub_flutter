@@ -12,6 +12,11 @@ class homepage extends StatefulWidget {
 }
 
 class _homepageState extends State<homepage> {
+  final Shader linearGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: <Color>[Colors.white, Colors.cyanAccent],
+  ).createShader(Rect.fromLTRB(400.0, .0, 0.0, 0.0));
 
 
   List<String> images = [
@@ -75,7 +80,7 @@ class _homepageState extends State<homepage> {
                     langname,
                     style: TextStyle(
                       fontSize: 20.0,
-                      color: Colors.white70,
+                      color: Colors.white,
                       fontFamily: "Quando",
                       fontWeight: FontWeight.w700,
                     ),
@@ -86,10 +91,11 @@ class _homepageState extends State<homepage> {
                   child: Text(
                     des,
                     style: TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.cyanAccent,
-                      fontFamily: "Alike"
-                    ),
+                        fontSize: 18.0,
+                        fontFamily: "Alike",
+                        fontWeight: FontWeight.w500,
+                        foreground: Paint()..shader = linearGradient,
+                        letterSpacing: 1),
                     maxLines: 5,
                     textAlign: TextAlign.justify,
                   ),
@@ -105,6 +111,9 @@ class _homepageState extends State<homepage> {
 
   @override
   Widget build(BuildContext context) {
+    final Shader linearGradient = LinearGradient(
+      colors: <Color>[Colors.cyanAccent, Colors.blueAccent],
+    ).createShader(Rect.fromLTWH(100.0, 0.0, 200.0, 70.0));
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitDown, DeviceOrientation.portraitUp
     ]);
@@ -112,19 +121,29 @@ class _homepageState extends State<homepage> {
       body: CustomScrollView(
         slivers: <Widget>[
 
-          SliverAppBar(
+          SliverAppBar( backgroundColor: Colors.black,
             expandedHeight: 720.0,
             floating: true,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              titlePadding: EdgeInsetsDirectional.fromSTEB(0, 16, 150, 02),
+              titlePadding: EdgeInsetsDirectional.fromSTEB(0, 25, 150, 02),
               title:
               Center(
-                child: Text('Quiz Hub',
-                    style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 35.0,
-                    fontFamily: "Satisfy"),
+                child: Text('QUIZ HUB',
+                  style: TextStyle(fontSize: 35,foreground: Paint()..shader = linearGradient,
+                    shadows: <Shadow>[
+                      Shadow(
+                        offset: Offset(1.0, 1.0),
+                        blurRadius: 3.0,
+                        color: Colors.black,
+                      ),
+                      Shadow(
+                        offset: Offset(1.0, 1.0),
+                        blurRadius: 2.0,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
                 ),
               ),
 

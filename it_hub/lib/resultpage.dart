@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'home.dart';
 
 
-class resultpage extends StatefulWidget {
+class Result extends StatefulWidget {
   int marks;
-  resultpage({Key key , @required this.marks}) : super(key : key);
+  Result({Key key , @required this.marks}) : super(key : key);
   @override
-  _resultpageState createState() => _resultpageState(marks);
+  _ResultState createState() => _ResultState(marks);
 }
 
-class _resultpageState extends State<resultpage> {
+class _ResultState extends State<Result> {
 
   List<String> images = [
     "images/success.png",
@@ -36,13 +36,18 @@ class _resultpageState extends State<resultpage> {
   }
 
   int marks;
-  _resultpageState(this.marks);
+  _ResultState(this.marks);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "                                      Result",
+        title: Padding(
+          padding: const EdgeInsets.all(1),
+          child: Center(
+            child: Text(
+              "Result",style: TextStyle(color: Colors.cyanAccent,fontFamily: "Satisfy"),
+            ),
+          ),
         ),
       ),
       body: Column(
@@ -108,8 +113,8 @@ class _resultpageState extends State<resultpage> {
                     vertical: 10.0,
                     horizontal: 25.0,
                   ),
-                  borderSide: BorderSide(width: 3.0, color: Colors.indigo),
-                  splashColor: Colors.indigoAccent,
+                  borderSide: BorderSide(width: 3.0, color: Colors.cyanAccent),
+                  splashColor: Colors.black,
                 )
               ],
             ),

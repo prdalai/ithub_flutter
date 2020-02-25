@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:it_hub/Pages/homepage.dart';
 import 'package:it_hub/login_demo/auth.dart';
 import 'package:it_hub/login_demo/auth_provider.dart';
 import 'package:it_hub/login_demo/login_page.dart';
-import 'package:it_hub/sidebar/sidebar.dart';
+import 'package:it_hub/sidebar/sidebar_layout.dart';
 
 
 
@@ -38,11 +37,11 @@ class _RootPageState extends State<RootPage> {
     });
   }
 
-  void _signedOut() {
+ /* void _signedOut() {
     setState(() {
       authStatus = AuthStatus.notSignedIn;
     });
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -54,9 +53,7 @@ class _RootPageState extends State<RootPage> {
           onSignedIn: _signedIn,
         );
       case AuthStatus.signedIn:
-        return HomePage(
-          onSignedOut: _signedOut,
-        );
+        return SideBarLayout();
     }
     return null;
   }

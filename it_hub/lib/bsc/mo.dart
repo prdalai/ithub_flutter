@@ -4,25 +4,25 @@ import 'package:webfeed/webfeed.dart';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 
-class Book extends StatefulWidget with NavigationStates {
+class Mo extends StatefulWidget with NavigationStates {
   //
-  Book() : super();
+  Mo() : super();
 
   final String title = 'RSS Feed Demo';
 
   @override
-  BookState createState() => BookState();
+  MoState createState() => MoState();
 }
 
-class BookState extends State<Book> {
+class MoState extends State<Mo> {
   //
   static const String FEED_URL =
-      'https://raw.githubusercontent.com/prdalai/project/master/book.xml';
+      'https://raw.githubusercontent.com/prdalai/project/master/mo.xml';
   RssFeed _feed;
   final Shader linearGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
-    colors: <Color>[Color(0xff00f5ff), Colors.blue],
+    colors: <Color>[Color(0xff00f5ff), Colors.lightBlueAccent],
   ).createShader(Rect.fromLTRB(400.0, .0, 0.0, 0.0));
   static const String loadingFeedMsg = 'Loading Feed...';
   static const String feedLoadErrorMsg = 'Error Loading Feed.';
@@ -113,7 +113,6 @@ class BookState extends State<Book> {
           contentPadding: EdgeInsets.fromLTRB(5, 0, 0, 0),
           onTap: () => openFeed(item.link),
         );
-
       },
     );
   }
@@ -144,7 +143,7 @@ class BookState extends State<Book> {
         backgroundColor: Colors.black,
         title: Center(
             child: Text(
-          "PROGRAMMING BOOKS",
+          "REFERENCE BOOKS",
               style: TextStyle(
                 fontSize: 30,letterSpacing: 2,
                 foreground: Paint()..shader = linearGradient,

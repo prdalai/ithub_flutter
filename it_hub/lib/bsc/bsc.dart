@@ -15,25 +15,21 @@ class _BscState extends State<Bsc> {
   @override
   Widget build(BuildContext context) {
     final Shader linearGradient = LinearGradient(
-      colors: <Color>[Color(0xff000000 ), Color(0xff000000)],
+      colors: <Color>[Colors.cyanAccent, Colors.white],
+    ).createShader(Rect.fromLTWH(100.0, 0.0, 200.0, 70.0));
+    final Shader bg = LinearGradient(
+      colors: <Color>[Colors.black, Colors.black],
     ).createShader(Rect.fromLTWH(100.0, 0.0, 200.0, 70.0));
     return Scaffold(
       body: WillPopScope(
         onWillPop: onBackPress,
         child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+
+          ),
           child: Scaffold(
-            appBar: AppBar(backgroundColor: Colors.cyanAccent,
-              leading: new IconButton(
-                icon: new Icon(Icons.arrow_back, color: Colors.black),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => SideBarLayout()),
-                  );
-                },
-              ),
-            ),
-            backgroundColor: Colors.cyanAccent,
+            backgroundColor: Colors.black87,
             body: ListView(
               children: <Widget>[
                 Padding(
@@ -42,6 +38,10 @@ class _BscState extends State<Bsc> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(topLeft: Radius.circular(75.0)),
+                          ),
                           width: 15.0,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -86,9 +86,9 @@ class _BscState extends State<Bsc> {
                   decoration: BoxDecoration(
                     gradient: LinearGradient(begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
-                        colors: [Colors.black, Colors.white30]),
+                        colors: [Colors.cyanAccent, Colors.transparent]),
                     borderRadius:
-                    BorderRadius.only(topLeft: Radius.circular(0.0),bottomLeft: Radius.circular(0.0),),
+                    BorderRadius.only(topLeft: Radius.circular(30.0),topRight: Radius.circular(30.0),),
                   ),
                   child: ListView(
                     primary: false,
@@ -115,10 +115,6 @@ class _BscState extends State<Bsc> {
                                     splashColor:
                                     Colors.cyanAccent.withAlpha(30),
                                     onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => Book()),
-                                      );
                                     },
                                     child: Container(
                                       height: 60.0,
@@ -131,12 +127,12 @@ class _BscState extends State<Bsc> {
                                                   'SEM - 1',
                                                   style: TextStyle(
                                                     fontSize: 30,
-                                                    foreground: Paint()..shader = linearGradient,
+                                                    foreground: Paint()..shader = bg,
                                                     shadows: <Shadow>[
                                                       Shadow(
                                                         offset: Offset(2.0, 2.0),
                                                         blurRadius: 3.0,
-                                                        color: Colors.lightBlueAccent,
+                                                        color: Colors.white,
                                                       ),
                                                       Shadow(
                                                         offset: Offset(1.0, 1.0),
@@ -164,13 +160,9 @@ class _BscState extends State<Bsc> {
                                         bottomRight: Radius.circular(75.0)),
                                   ),
                                   child: InkWell(
-
-
+                                    splashColor:
+                                    Colors.cyanAccent.withAlpha(30),
                                     onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => Book()),
-                                      );
                                     },
                                     child: Container(
                                       height: 60.0,
@@ -183,12 +175,12 @@ class _BscState extends State<Bsc> {
                                                   'SEM - 2',
                                                   style: TextStyle(
                                                     fontSize: 30,
-                                                    foreground: Paint()..shader = linearGradient,
+                                                    foreground: Paint()..shader = bg,
                                                     shadows: <Shadow>[
                                                       Shadow(
                                                         offset: Offset(2.0, 2.0),
                                                         blurRadius: 3.0,
-                                                        color: Colors.lightBlueAccent,
+                                                        color: Colors.white,
                                                       ),
                                                       Shadow(
                                                         offset: Offset(1.0, 1.0),
@@ -219,10 +211,6 @@ class _BscState extends State<Bsc> {
                                     splashColor:
                                     Colors.cyanAccent.withAlpha(30),
                                     onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => Book()),
-                                      );
                                     },
                                     child: Container(
                                       height: 60.0,
@@ -235,12 +223,12 @@ class _BscState extends State<Bsc> {
                                                   'SEM - 3',
                                                   style: TextStyle(
                                                     fontSize: 30,
-                                                    foreground: Paint()..shader = linearGradient,
+                                                    foreground: Paint()..shader = bg,
                                                     shadows: <Shadow>[
                                                       Shadow(
                                                         offset: Offset(2.0, 2.0),
                                                         blurRadius: 3.0,
-                                                        color: Colors.lightBlueAccent,
+                                                        color: Colors.white,
                                                       ),
                                                       Shadow(
                                                         offset: Offset(1.0, 1.0),
@@ -271,10 +259,6 @@ class _BscState extends State<Bsc> {
                                     splashColor:
                                     Colors.cyanAccent.withAlpha(30),
                                     onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => Book()),
-                                      );
                                     },
                                     child: Container(
                                       height: 60.0,
@@ -287,12 +271,12 @@ class _BscState extends State<Bsc> {
                                                   'SEM - 4',
                                                   style: TextStyle(
                                                     fontSize: 30,
-                                                    foreground: Paint()..shader = linearGradient,
+                                                    foreground: Paint()..shader = bg,
                                                     shadows: <Shadow>[
                                                       Shadow(
                                                         offset: Offset(2.0, 2.0),
                                                         blurRadius: 3.0,
-                                                        color: Colors.lightBlueAccent,
+                                                        color: Colors.white,
                                                       ),
                                                       Shadow(
                                                         offset: Offset(1.0, 1.0),
@@ -323,10 +307,6 @@ class _BscState extends State<Bsc> {
                                     splashColor:
                                     Colors.cyanAccent.withAlpha(30),
                                     onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => Book()),
-                                      );
                                     },
                                     child: Container(
                                       height: 60.0,
@@ -339,12 +319,12 @@ class _BscState extends State<Bsc> {
                                                   'SEM - 5',
                                                   style: TextStyle(
                                                     fontSize: 30,
-                                                    foreground: Paint()..shader = linearGradient,
+                                                    foreground: Paint()..shader = bg,
                                                     shadows: <Shadow>[
                                                       Shadow(
                                                         offset: Offset(2.0, 2.0),
                                                         blurRadius: 3.0,
-                                                        color: Colors.lightBlueAccent,
+                                                        color: Colors.white,
                                                       ),
                                                       Shadow(
                                                         offset: Offset(1.0, 1.0),
@@ -373,12 +353,8 @@ class _BscState extends State<Bsc> {
                                   ),
                                   child: InkWell(
                                     splashColor:
-                                    Colors.tealAccent.withAlpha(30),
+                                    Colors.cyanAccent.withAlpha(30),
                                     onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => Book()),
-                                      );
                                     },
                                     child: Container(
                                       height: 60.0,
@@ -391,12 +367,12 @@ class _BscState extends State<Bsc> {
                                                   'SEM - 6',
                                                   style: TextStyle(
                                                     fontSize: 30,
-                                                    foreground: Paint()..shader = linearGradient,
+                                                    foreground: Paint()..shader = bg,
                                                     shadows: <Shadow>[
                                                       Shadow(
                                                         offset: Offset(2.0, 2.0),
                                                         blurRadius: 3.0,
-                                                        color: Colors.lightBlueAccent,
+                                                        color: Colors.white,
                                                       ),
                                                       Shadow(
                                                         offset: Offset(1.0, 1.0),

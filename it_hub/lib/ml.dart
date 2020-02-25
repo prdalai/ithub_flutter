@@ -15,12 +15,13 @@ import 'package:flutter/material.dart';
 // https://codelabs.developers.google.com/codelabs/flutter-firebase/#0
 class FirebaseMLKitExample extends StatefulWidget with NavigationStates{
   const FirebaseMLKitExample({Key key}) : super(key: key);
-
   @override
   _FirebaseMLKitExampleState createState() => _FirebaseMLKitExampleState();
 }
 
 class _FirebaseMLKitExampleState extends State<FirebaseMLKitExample> {
+
+
   File _imageFile;
   String _mlResult = '<no result>';
 
@@ -224,50 +225,121 @@ class _FirebaseMLKitExampleState extends State<FirebaseMLKitExample> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        this._imageFile == null
-            ? Placeholder(
-          fallbackHeight: 200.0,
-        )
-            : FadeInImage(
-          placeholder: MemoryImage(kTransparentImage),
-          image: FileImage(this._imageFile),
-          // Image.file(, fit: BoxFit.contain),
-        ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: ButtonBar(
-            children: <Widget>[
-              RaisedButton(color: Colors.black,
-                child: Text('Image Labelling'),
-                onPressed: this._imageLabelling,
+    final Shader linearGradient = LinearGradient(
+      colors: <Color>[Color(0xff00BCFF), Colors.blueAccent],
+    ).createShader(Rect.fromLTWH(100.0, 0.0, 200.0, 70.0));
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Center(child: Text("MACHINE LEARNING",
+          style: TextStyle(
+            fontSize: 30,letterSpacing: 2,
+            foreground: Paint()..shader = linearGradient,
+            shadows: <Shadow>[
+              Shadow(
+                offset: Offset(1.0, 1.0),
+                blurRadius: 3.0,
+                color: Colors.white,
               ),
-              RaisedButton(color: Colors.black,
-                child: Text('Text OCR'),
-                onPressed: this._textOcr,
-              ),
-              RaisedButton(color: Colors.black,
-                child: Text('Barcode Scan'),
-                onPressed: this._barcodeScan,
-              ),
-              RaisedButton( color: Colors.black,
-                child: Text('Face Detection'),
-                onPressed: this._faceDetect,
+              Shadow(
+                offset: Offset(1.0, 1.0),
+                blurRadius: 2.0,
+                color: Colors.black,
               ),
             ],
           ),
+        )),
+      ),
+    body: Container(
+      child: Center(
+        child: ListView(
+          children: <Widget>[
+            this._imageFile == null
+                ? Placeholder(
+              fallbackHeight: 200.0,
+            )
+                : FadeInImage(
+              placeholder: MemoryImage(kTransparentImage),
+              image: FileImage(this._imageFile,),
+              // Image.file(, fit: BoxFit.contain),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: ButtonBar(
+                children: <Widget>[
+                  RaisedButton(color: Colors.cyanAccent,
+                    child: Text('Text OCR',
+                      style: TextStyle(fontSize: 12,color: Colors.black,letterSpacing: 1,
+                        shadows: <Shadow>[
+                          Shadow(
+                            offset: Offset(1.0, 1.0),
+                            blurRadius: 3.0,
+                            color: Colors.black,
+                          ),
+                          Shadow(
+                            offset: Offset(1.0, 1.0),
+                            blurRadius: 2.0,
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: this._textOcr,
+                  ),
+                  RaisedButton(color: Colors.cyanAccent,
+                    child: Text('Barcode Scan',
+                      style: TextStyle(fontSize: 12,color: Colors.black,letterSpacing: 1,
+                        shadows: <Shadow>[
+                          Shadow(
+                            offset: Offset(1.0, 1.0),
+                            blurRadius: 3.0,
+                            color: Colors.black,
+                          ),
+                          Shadow(
+                            offset: Offset(1.0, 1.0),
+                            blurRadius: 2.0,
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: this._barcodeScan,
+                  ),
+                  RaisedButton( color: Colors.cyanAccent,
+                    child: Text('Face Detection',
+                      style: TextStyle(fontSize: 12,color: Colors.black,letterSpacing: 1,
+                        shadows: <Shadow>[
+                          Shadow(
+                            offset: Offset(1.0, 1.0),
+                            blurRadius: 3.0,
+                            color: Colors.black,
+                          ),
+                          Shadow(
+                            offset: Offset(1.0, 1.0),
+                            blurRadius: 2.0,
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: this._faceDetect,
+                  ),
+                ],
+              ),
+            ),
+            Divider(),
+            Text('Result:', style: Theme.of(context).textTheme.subtitle),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Text(
+                this._mlResult,
+                style: TextStyle(fontFamily: 'monospace'),
+              ),
+            ),
+          ],
         ),
-        Divider(),
-        Text('Result:', style: Theme.of(context).textTheme.subtitle),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Text(
-            this._mlResult,
-            style: TextStyle(fontFamily: 'monospace'),
-          ),
-        ),
-      ],
+      ),
+    ),
     );
   }
 }

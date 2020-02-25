@@ -24,11 +24,11 @@ class _SplashscreenState extends State<Splashscreen> {
       backgroundColor: Colors.black,
       body: Center(
         child: Text(
-          "QuizTime",
+          "QUIZ HUB",
           style: TextStyle(
             color: Colors.cyan,
             fontSize: 50.0,
-            fontFamily: "Satisfy"
+            fontFamily: "Alike"
           ),
         ),
       ),

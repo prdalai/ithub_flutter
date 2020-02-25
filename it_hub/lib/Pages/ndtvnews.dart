@@ -79,9 +79,12 @@ class NdtvState extends State<Ndtv> {
   }
 
   title(title) {
+    final Shader linearGradient = LinearGradient(begin: Alignment.topLeft,end: Alignment.bottomRight,
+      colors: <Color>[Colors.cyan, Colors.lightBlueAccent],
+    ).createShader(Rect.fromLTRB(400.0, .0, 0.0, 0.0));
     return Text(
       title,
-      style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500,color: Colors.cyanAccent),
+      style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500,foreground: Paint()..shader = linearGradient,fontFamily: "Alike"),
       maxLines: 2,
       overflow: TextOverflow.ellipsis,
     );
@@ -100,7 +103,7 @@ class NdtvState extends State<Ndtv> {
   rightIcon() {
     return Icon(
       Icons.keyboard_arrow_right,
-      color: Colors.grey,
+      color: Colors.cyanAccent,
       size: 30.0,
     );
   }
@@ -114,7 +117,7 @@ class NdtvState extends State<Ndtv> {
           title: title(item.title),
           subtitle: subtitle(item.pubDate),
           trailing: rightIcon(),
-          contentPadding: EdgeInsets.all(5.0),
+          contentPadding: EdgeInsets.fromLTRB(5, 0, 0, 0),
           onTap: () => openFeed(item.link),
         );
       },
@@ -139,9 +142,30 @@ class NdtvState extends State<Ndtv> {
 
   @override
   Widget build(BuildContext context) {
+    final Shader linearGradient = LinearGradient(
+      colors: <Color>[Color(0xff00BCFF), Colors.blueAccent],
+    ).createShader(Rect.fromLTWH(100.0, 0.0, 200.0, 70.0));
     return Scaffold(
       appBar: AppBar(
-        title: Text("                                      NEWS HUB"),
+        backgroundColor: Colors.black,
+        title: Center(child: Text("NEWS HUB",
+          style: TextStyle(
+            fontSize: 30,letterSpacing: 2,
+            foreground: Paint()..shader = linearGradient,
+            shadows: <Shadow>[
+              Shadow(
+                offset: Offset(1.0, 1.0),
+                blurRadius: 3.0,
+                color: Colors.white,
+              ),
+              Shadow(
+                offset: Offset(1.0, 1.0),
+                blurRadius: 2.0,
+                color: Colors.black,
+              ),
+            ],
+          ),
+        )),
       ),
       body: body(),
     );

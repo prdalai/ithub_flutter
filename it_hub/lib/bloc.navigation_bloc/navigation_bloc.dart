@@ -3,6 +3,11 @@ import 'package:it_hub/Pages/homepage.dart';
 import 'package:it_hub/Pages/ndtvnews.dart';
 import 'package:it_hub/Pages/quizz.dart';
 import 'package:it_hub/book.dart';
+import 'package:it_hub/bsc/bsc.dart';
+import 'package:it_hub/bsc/mo.dart';
+import 'package:it_hub/bsc/mot.dart';
+import 'package:it_hub/lg.dart';
+import 'package:it_hub/wallpaper/wallscreen.dart';
 
 import '../ml.dart';
 
@@ -12,7 +17,11 @@ enum NavigationEvents {
   MyNewsClickedEvent,
   MyQuizClickedEvent,
   MyBookClickedEvent,
-  MyMlClickedEvent
+  MyMlClickedEvent,
+  MyWlClickedEvent,
+  MylgEvent,
+  MyBscEvent,
+  MyMoEvent,
 }
 
 abstract class NavigationStates {}
@@ -38,6 +47,18 @@ class NavigationBloc extends Bloc<NavigationEvents, NavigationStates> {
         break;
       case NavigationEvents.MyMlClickedEvent:
         yield FirebaseMLKitExample();
+        break;
+      case NavigationEvents.MyWlClickedEvent:
+        yield WallScreen();
+        break;
+      case NavigationEvents.MylgEvent:
+        yield Lg();
+        break;
+      case NavigationEvents.MyBscEvent:
+        yield Mo();
+        break;
+      case NavigationEvents.MyMoEvent:
+        yield Mot();
         break;
     }
   }

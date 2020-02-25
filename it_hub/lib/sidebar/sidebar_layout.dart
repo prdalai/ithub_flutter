@@ -16,7 +16,7 @@ class SideBarLayout extends StatelessWidget {
                 return navigationState as Widget;
               },
             ),
-            SideBar(),
+            Gh(),
           ],
         ),
       ),

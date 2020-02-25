@@ -119,7 +119,7 @@ class _quizpageState extends State<quizpage> {
         j++;
       } else {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => resultpage(marks: marks),
+          builder: (context) => Result(marks: marks),
         ));
       }
       btncolor["a"] = Colors.indigoAccent;
@@ -184,10 +184,10 @@ class _quizpageState extends State<quizpage> {
             builder: (context) => AlertDialog(shape: RoundedRectangleBorder(borderRadius:  BorderRadius.all(Radius.circular(20.0))),
               backgroundColor: Colors.transparent,
               title: Text(
-                "Quizstar",
+                "QUIZ HUB",
               ),
               content: Text("You Can't Go Back At This Stage.",style: TextStyle(
-                color: Colors.deepOrange,
+                color: Colors.blueAccent,
                 fontFamily: "Alike",
                 fontSize: 16.0,
               ),),
@@ -217,9 +217,19 @@ class _quizpageState extends State<quizpage> {
                 alignment: Alignment.bottomLeft,
                 child: Text(
                   mydata[0][i.toString()],
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontFamily: "Quando",
+                  style: TextStyle(fontSize: 30,
+                    shadows: <Shadow>[
+                      Shadow(
+                        offset: Offset(2.0, 2.0),
+                        blurRadius: 3.0,
+                        color: Colors.lightBlueAccent,
+                      ),
+                      Shadow(
+                        offset: Offset(1.0, 1.0),
+                        blurRadius: 2.0,
+                        color: Colors.black,
+                      ),
+                    ],
                   ),
                 ),
               ),
